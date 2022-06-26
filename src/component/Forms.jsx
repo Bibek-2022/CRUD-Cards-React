@@ -16,7 +16,9 @@ export const Forms = () => {
     setData([...data, form]);
     // setForm({});
   };
-
+  const clearAll = () => {
+    setData([]);
+  };
   // Remove item
   const remove = (index) => {
     setData(data.filter((item, i) => i !== index)); //new array
@@ -52,7 +54,13 @@ export const Forms = () => {
           Submit
         </Button>
       </Form>
-
+      <hr />
+      <div className="container d-flex flex-row-reverse">
+        <Button variant="danger" onClick={clearAll} className="ms-auto mr-5">
+          Clear All
+        </Button>
+      </div>
+      <hr />
       <Cards data={data} remove={remove} />
     </div>
   );
