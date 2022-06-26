@@ -14,11 +14,12 @@ export const Forms = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setData([...data, form]);
+    // setForm({});
   };
 
   // Remove item
   const remove = (index) => {
-    setData(data.filter((item, i) => i !== index));
+    setData(data.filter((item, i) => i !== index)); //new array
   };
   return (
     <div>
