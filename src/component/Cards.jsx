@@ -5,7 +5,12 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 export const Cards = ({ data, remove }) => {
   const [show, setShow] = useState(false);
+  const [form, setForm] = useState([]);
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -29,20 +34,20 @@ export const Cards = ({ data, remove }) => {
                 <Button variant="primary" onClick={handleShow}>
                   Update
                 </Button>
-
+                {/* Modals starts */}
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Edit</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     <Form className="container justify-content-center mt-5">
-                      <h1 className="text-center">Your Own Kanban Board</h1>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Task</Form.Label>
                         <Form.Control
                           type="text"
                           name="task"
                           placeholder="Task"
+                          onChange={handleOnChange}
                         />
                       </Form.Group>
 
@@ -55,12 +60,9 @@ export const Cards = ({ data, remove }) => {
                           type="text"
                           name="desc"
                           placeholder="Description"
+                          onChange={handleOnChange}
                         />
                       </Form.Group>
-
-                      <Button variant="primary" type="submit">
-                        Submit
-                      </Button>
                     </Form>
                   </Modal.Body>
                   <Modal.Footer>

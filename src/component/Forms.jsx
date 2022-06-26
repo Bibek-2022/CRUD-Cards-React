@@ -27,7 +27,7 @@ export const Forms = () => {
         className="container justify-content-center mt-5"
         onSubmit={handleOnSubmit}
       >
-        <h1 className="text-center">Your Own Kanban Board</h1>
+        <h1 className="text-center">CRUD ACTION Board</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Task</Form.Label>
           <Form.Control
