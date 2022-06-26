@@ -6,19 +6,20 @@ import { Cards } from "./Cards";
 export const Forms = () => {
   const [form, setForm] = useState([]);
   const [data, setData] = useState([]);
-  // const collection = [];
+
   const handleOnChange = (e) => {
-    // console.log(e);
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setData([...data, form]);
-    // collection.push(data);
-    // console.log(data);
   };
 
+  // Remove item
+  const remove = (index) => {
+    setData(data.filter((item, i) => i !== index));
+  };
   return (
     <div>
       <Form
@@ -50,11 +51,8 @@ export const Forms = () => {
           Submit
         </Button>
       </Form>
-      {/* {da && <Cards data={data} />} */}
-      <Cards data={data} />
-      {/* {data.map((item) => {
-        <Cards data={item} />;
-      })} */}
+
+      <Cards data={data} remove={remove} />
     </div>
   );
 };
