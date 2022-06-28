@@ -3,35 +3,38 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-export const Cards = ({ data, remove }) => {
+export const Cards = ({ data, remove, update }) => {
   const [show, setShow] = useState(false);
-  const [form, setForm] = useState([]);
+  const [forms, setForm] = useState([]);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm({ ...forms, [name]: value });
   };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <div className="d-flex flex-row flex-wrap">
-      {console.log(data)}
       {data &&
         data.map((item, index) => {
           return (
-            <Card style={{ width: "18rem" }} className="container mt-4 p-2 ">
+            <Card
+              style={{ width: "18rem" }}
+              className="container mt-4 p-2 "
+              key={index}
+            >
               <Card.Body className="text-center">
                 <Card.Title>{item.task}</Card.Title>
                 <Card.Text>{item.desc}</Card.Text>
                 <Button
-                  variant="danger"
+                  variant="success"
                   className="m-2"
                   onClick={() => remove(index)}
                 >
                   Done
                 </Button>
 
-                <Button variant="primary" onClick={handleShow}>
+                <Button variant="warning" onClick={handleShow}>
                   Update
                 </Button>
                 {/* Modals starts */}
@@ -40,7 +43,10 @@ export const Cards = ({ data, remove }) => {
                     <Modal.Title>Edit</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <Form className="container justify-content-center mt-5">
+                    <Form
+                      className="container justify-content-center mt-5"
+                      onClick={() => update([forms, index])}
+                    >
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Task</Form.Label>
                         <Form.Control
@@ -66,8 +72,13 @@ export const Cards = ({ data, remove }) => {
                     </Form>
                   </Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary">Close</Button>
-                    <Button variant="primary">Save Changes</Button>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+
+                    <Button variant="primary" type="submit">
+                      Save Changes
+                    </Button>
                   </Modal.Footer>
                 </Modal>
               </Card.Body>

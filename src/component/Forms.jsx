@@ -11,6 +11,12 @@ export const Forms = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
+
+  // Update the data
+  const update = (info) => {
+    console.log(info);
+    // data[i] = e;
+  };
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setData([...data, form]);
@@ -21,6 +27,7 @@ export const Forms = () => {
   };
   // Remove item
   const remove = (index) => {
+    console.log(index);
     setData(data.filter((item, i) => i !== index)); //new array
   };
   return (
@@ -61,7 +68,7 @@ export const Forms = () => {
         </Button>
       </div>
       <hr />
-      <Cards data={data} remove={remove} />
+      <Cards data={data} remove={remove} update={update} />
     </div>
   );
 };
