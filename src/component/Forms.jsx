@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Cards } from "./Cards";
 export const Forms = () => {
-  const [form, setForm] = useState([]);
+  const [form, setForm] = useState({});
   const [data, setData] = useState([]);
 
   const handleOnChange = (e) => {
@@ -13,8 +13,8 @@ export const Forms = () => {
   };
 
   // Update the data
-  const update = (info) => {
-    console.log(info);
+  const update = (e) => {
+    console.log(e);
     // data[i] = e;
   };
   const handleOnSubmit = (e) => {
@@ -30,6 +30,7 @@ export const Forms = () => {
     console.log(index);
     setData(data.filter((item, i) => i !== index)); //new array
   };
+
   return (
     <div>
       <Form

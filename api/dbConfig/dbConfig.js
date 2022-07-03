@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 
-export const connectMongoDB = () => {
-  const connectStr = process.env.MONGODB_CLIENT;
+const createConnection = () => {
   try {
-    const connect = mongoose.connect(connectStr);
-    connect && console.log("MongoDB connected");
+    const con = mongoose.connect(process.env.MONGO_URL);
+    con && console.log("connected to mongoDB");
   } catch (error) {
     console.log(error);
   }
 };
+
+export default createConnection;

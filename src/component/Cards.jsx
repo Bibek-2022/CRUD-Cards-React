@@ -11,8 +11,15 @@ export const Cards = ({ data, remove, update }) => {
     const { name, value } = e.target;
     setForm({ ...forms, [name]: value });
   };
+
+  const handleOnSubmit = (a, b) => {
+    console.log(a, b);
+  };
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (i) => {
+    setShow(true);
+    console.log(i);
+  };
   return (
     <div className="d-flex flex-row flex-wrap">
       {data &&
@@ -39,14 +46,14 @@ export const Cards = ({ data, remove, update }) => {
                 </Button>
                 {/* Modals starts */}
                 <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Edit</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Form
-                      className="container justify-content-center mt-5"
-                      onClick={() => update([forms, index])}
-                    >
+                  <Form
+                    className="container justify-content-center mt-5"
+                    onClick={() => handleOnSubmit(forms, index)}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Edit</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Task</Form.Label>
                         <Form.Control
@@ -69,17 +76,15 @@ export const Cards = ({ data, remove, update }) => {
                           onChange={handleOnChange}
                         />
                       </Form.Group>
-                    </Form>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Close
-                    </Button>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
 
-                    <Button variant="primary" type="submit">
-                      Save Changes
-                    </Button>
-                  </Modal.Footer>
+                      <Button variant="primary">Save Changes</Button>
+                    </Modal.Footer>
+                  </Form>
                 </Modal>
               </Card.Body>
             </Card>
