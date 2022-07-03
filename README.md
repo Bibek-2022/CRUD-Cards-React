@@ -6,3 +6,7 @@
 
 npm install -> To initilize the node modules
 npm start -> To run the application
+
+API
+
+/add -> This api will be able to add information to the database
