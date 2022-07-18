@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { postCard } from "../helper/axiosHelper";
 import { Cards } from "./Cards";
 export const Forms = () => {
   const [form, setForm] = useState({});
@@ -12,19 +13,20 @@ export const Forms = () => {
     setForm({ ...form, [name]: value });
   };
 
-  // Update the data
-  const update = (e) => {
-    console.log(e);
-    // data[i] = e;
-  };
+  // // Update the data
+  // const update = (e) => {
+  //   console.log(e);
+  //   // data[i] = e;
+  // };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setData([...data, form]);
-    // setForm({});
+    setData({ ...data, form });
+    console.log(form);
+    postCard(form);
   };
-  const clearAll = () => {
-    setData([]);
-  };
+  // const clearAll = () => {
+  //   setData([]);
+  // };
   // Remove item
   const remove = (index) => {
     console.log(index);
@@ -64,12 +66,12 @@ export const Forms = () => {
       </Form>
       <hr />
       <div className="container d-flex flex-row-reverse">
-        <Button variant="danger" onClick={clearAll} className="ms-auto mr-5">
+        <Button variant="danger" className="ms-auto mr-5">
           Clear All
         </Button>
       </div>
       <hr />
-      <Cards data={data} remove={remove} update={update} />
+      <Cards data={data} remove={remove} />
     </div>
   );
 };

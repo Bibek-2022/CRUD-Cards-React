@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-export const Cards = ({ data, remove, update }) => {
+export const Cards = ({ data, remove }) => {
   const [show, setShow] = useState(false);
   const [forms, setForm] = useState([]);
 
