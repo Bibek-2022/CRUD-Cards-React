@@ -4,18 +4,15 @@ import express from "express";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use(express.json());
-
 //db connection
 import createConnection from "./dbConfig/dbConfig.js";
 createConnection();
 
-import crudRoute from "./routers/crudRoute.js";
-app.use("/", crudRoute);
+// middlewares
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("react app is running");
-});
+import crudRoute from "./routers/crudRoute.js";
+app.use("/add", crudRoute);
 
 app.listen(PORT, (error) => {
   error && console.log(error);

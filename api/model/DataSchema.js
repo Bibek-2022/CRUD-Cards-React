@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
 
-const CardSchema = new mongoose.Schema(
+const DataSchema = new mongoose.Schema(
   {
     task: {
       type: String,
       required: true,
+      maxlength: 50,
     },
     desc: {
       type: String,
       required: true,
+      maxlength: 50,
     },
   },
   {
@@ -16,4 +18,4 @@ const CardSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("Card", CardSchema);
+export default mongoose.model("Card", DataSchema);

@@ -1,35 +1,36 @@
 import express from "express";
-import { createCard, getCard } from "../model/DataModel";
+import { createCard, getCard } from "../model/DataModel.js";
 const router = express.Router();
 
-router.get("/", async (res, req) => {
+router.get("/", async (req, res, next) => {
   try {
     const result = await getCard();
-    console.log(result);
-    res.json({
-      status: "success",
-      message: "user created successfully",
-      result,
-    });
+    result
+      ? res.json({
+          status: "success",
+          message: "Here are the product",
+          result,
+        })
+      : res.json({
+          status: "error",
+          message: "Cant get the product",
+          result,
+        });
   } catch (error) {
     console.log(error);
   }
 });
 
-router.post("/", async (res, req) => {
+router.post("/", async (req, res, next) => {
   try {
     const result = await createCard(req.body);
     console.log(result);
-    res.json({
-      status: "success",
-      message: "user created successfully",
-    });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 });
 
-router.delete("/:_id", async (res, req) => {
+router.delete("/:_id", async (req, res) => {
   try {
     const {
       params: { _id },

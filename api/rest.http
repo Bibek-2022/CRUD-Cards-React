@@ -1,8 +1,16 @@
+
+
+### get
+GET  http://localhost:8000/add
+
+
+### post product
+
 POST http://localhost:8000/add
 Content-Type: application/json
-
-{
-    "task": "bibek",
-    "desc": "bibek",
     
-}
+    {
+        "task": "inactive",
+        "desc": "product2"
+    }
+
