@@ -11,3 +11,7 @@ export const createCard = (obj) => {
 export const deleteCard = (_id) => {
   return DataSchema.findByIdAndDelete(_id);
 };
+
+export const updateCard = (_id, ...obj) => {
+  return DataSchema.findByIdAndUpdate(_id, obj, { new: true });
+};

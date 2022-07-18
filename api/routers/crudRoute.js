@@ -1,5 +1,5 @@
 import express from "express";
-import { createCard, getCard } from "../model/DataModel.js";
+import { createCard, getCard, updateCard } from "../model/DataModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
@@ -37,13 +37,33 @@ router.delete("/:_id", async (req, res) => {
     } = req;
     const result = await deleteCard(_id);
     console.log(result);
-    res.json({
-      status: "success",
-      message: "user created successfully",
-    });
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "card deleted successfully",
+          result,
+        })
+      : res.json({
+          status: "error",
+          message: "card not deleted successfully",
+          result,
+        });
   } catch (error) {
     console.log(error);
   }
 });
 
+router.put("/", async (req, res) => {
+  try {
+    const result = await updateCard(req.body);
+    console.log(result);
+    res.json({
+      status: "success",
+      message: "user created successfully",
+      result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
 export default router;
