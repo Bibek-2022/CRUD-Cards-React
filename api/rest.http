@@ -1,0 +1,8 @@
+POST http://localhost:8000/add
+Content-Type: application/json
+
+{
+    "task": "bibek",
+    "desc": "bibek",
+    
+}

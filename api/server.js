@@ -11,7 +11,7 @@ import createConnection from "./dbConfig/dbConfig.js";
 createConnection();
 
 import crudRoute from "./routers/crudRoute.js";
-app.use("/add", crudRoute);
+app.use("/", crudRoute);
 
 app.get("/", (req, res) => {
   res.send("react app is running");
