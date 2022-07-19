@@ -16,5 +16,5 @@ const apiProcessor = async (method, url, data) => {
 };
 
 export const postCard = (obj) => {
-  return apiProcessor("post", obj);
+  return apiProcessor("post", rootUrl, obj);
 };

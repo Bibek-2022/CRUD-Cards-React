@@ -1,5 +1,8 @@
 import "dotenv/config";
 import express from "express";
+import helmet from "helmet";
+import morgan from "morgan";
+import cors from "cors";
 // import { createConnection } from "../dbConfig/dbConfig.js";
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -10,6 +13,9 @@ createConnection();
 
 // middlewares
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(morgan("tiny"));
 
 import crudRoute from "./routers/crudRoute.js";
 app.use("/add", crudRoute);
