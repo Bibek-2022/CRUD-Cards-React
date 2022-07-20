@@ -15,6 +15,11 @@ const apiProcessor = async (method, url, data) => {
   }
 };
 
+export const getCard = () => {
+  return apiProcessor("get", rootUrl);
+};
+
 export const postCard = (obj) => {
+  console.log(obj);
   return apiProcessor("post", rootUrl, obj);
 };
