@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { getCard } from "../helper/axiosHelper";
+import { deleteCard, getCard } from "../helper/axiosHelper";
 export const Cards = () => {
   const [show, setShow] = useState(false);
   const [data, setdata] = useState([]);
@@ -28,6 +28,10 @@ export const Cards = () => {
     setForm({ ...forms, [name]: value });
   };
 
+  const remove = (index) => {
+    deleteCard(index);
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = (i) => {
     setShow(true);
@@ -41,7 +45,7 @@ export const Cards = () => {
             <Card
               style={{ width: "18rem" }}
               className="container mt-4 p-2 "
-              // key={index}
+              key={item._id}
             >
               <Card.Body className="text-center">
                 <Card.Title>{item.task}</Card.Title>
@@ -49,7 +53,7 @@ export const Cards = () => {
                 <Button
                   variant="success"
                   className="m-2"
-                  // onClick={() => remove(index)}
+                  onClick={() => remove(item._id)}
                 >
                   Done
                 </Button>

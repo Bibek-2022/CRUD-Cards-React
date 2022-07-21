@@ -23,3 +23,8 @@ export const postCard = (obj) => {
   console.log(obj);
   return apiProcessor("post", rootUrl, obj);
 };
+
+export const deleteCard = (_id) => {
+  console.log(_id);
+  return apiProcessor("delete", rootUrl + "/" + _id);
+};

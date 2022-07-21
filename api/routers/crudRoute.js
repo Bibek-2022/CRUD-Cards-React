@@ -1,5 +1,10 @@
 import express from "express";
-import { createCard, getCard, updateCard } from "../model/DataModel.js";
+import {
+  createCard,
+  deleteCard,
+  getCard,
+  updateCard,
+} from "../model/DataModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
@@ -32,9 +37,7 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:_id", async (req, res) => {
   try {
-    const {
-      params: { _id },
-    } = req;
+    const { _id } = req.params;
     const result = await deleteCard(_id);
     console.log(result);
     result?._id
