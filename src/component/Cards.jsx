@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { deleteCard, getCard } from "../helper/axiosHelper";
+import { deleteCard, getCard, updateCard } from "../helper/axiosHelper";
 export const Cards = () => {
   const [show, setShow] = useState(false);
   const [data, setdata] = useState([]);
@@ -31,7 +31,11 @@ export const Cards = () => {
   const remove = (index) => {
     deleteCard(index);
   };
-
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(forms);
+    updateCard(forms);
+  };
   const handleClose = () => setShow(false);
   const handleShow = (i) => {
     setShow(true);
@@ -65,7 +69,7 @@ export const Cards = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Form
                     className="container justify-content-center mt-5"
-                    // onClick={() => handleOnSubmit(forms, index)}
+                    handleOnSubmit={handleOnSubmit}
                   >
                     <Modal.Header closeButton>
                       <Modal.Title>Edit</Modal.Title>
