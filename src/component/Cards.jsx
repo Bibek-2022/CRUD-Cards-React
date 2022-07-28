@@ -32,7 +32,7 @@ export const Cards = () => {
     deleteCard(index);
   };
   const handleOnSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(forms);
     updateCard(forms);
   };
@@ -67,10 +67,7 @@ export const Cards = () => {
                 </Button>
                 {/* Modals starts */}
                 <Modal show={show} onHide={handleClose}>
-                  <Form
-                    className="container justify-content-center mt-5"
-                    handleOnSubmit={handleOnSubmit}
-                  >
+                  <Form className="container justify-content-center mt-5">
                     <Modal.Header closeButton>
                       <Modal.Title>Edit</Modal.Title>
                     </Modal.Header>
@@ -103,7 +100,9 @@ export const Cards = () => {
                         Close
                       </Button>
 
-                      <Button variant="primary">Save Changes</Button>
+                      <Button variant="primary" onClick={handleOnSubmit}>
+                        Save Changes
+                      </Button>
                     </Modal.Footer>
                   </Form>
                 </Modal>

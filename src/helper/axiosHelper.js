@@ -30,5 +30,6 @@ export const deleteCard = (_id) => {
 };
 
 export const updateCard = (obj) => {
+  console.log(obj);
   return apiProcessor("put", rootUrl, obj);
 };
