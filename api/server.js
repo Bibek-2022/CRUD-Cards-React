@@ -19,6 +19,7 @@ app.use(morgan("tiny"));
 
 import crudRoute from "./routers/crudRoute.js";
 app.use("/add", crudRoute);
+app.use("/reg-login", registerLogin);
 
 app.listen(PORT, (error) => {
   error && console.log(error);
