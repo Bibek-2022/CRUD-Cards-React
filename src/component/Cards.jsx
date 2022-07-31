@@ -9,18 +9,14 @@ export const Cards = () => {
   const [data, setdata] = useState([]);
   const [forms, setForm] = useState([]);
 
+  const red = async () => {
+    const result = await getCard();
+    console.log(result);
+    return setdata(result.result);
+  };
+
   useEffect(() => {
-    getCard()
-      .then((res) => {
-        console.log(res.result);
-        setdata(res.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        console.log("finally");
-      });
+    red();
   }, []);
 
   const handleOnChange = (e) => {
@@ -30,11 +26,16 @@ export const Cards = () => {
 
   const remove = (index) => {
     deleteCard(index);
+    getCard().then((res) => {
+      console.log(res.result);
+      setdata(res.result);
+      red();
+    });
   };
   const handleOnSubmit = (e) => {
     // e.preventDefault();
     console.log(forms);
-    updateCard(forms);
+    updateCard(forms) && red();
   };
   const handleClose = () => setShow(false);
   const handleShow = (i) => {
