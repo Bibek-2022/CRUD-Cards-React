@@ -18,8 +18,9 @@ app.use(helmet());
 app.use(morgan("tiny"));
 
 import crudRoute from "./routers/crudRoute.js";
+import crudRoute from "./routers/registerLoginRoute.js";
 app.use("/add", crudRoute);
-// app.use("/reg-login", registerLogin);
+app.use("/reg-login", registerLoginRoute);
 
 app.listen(PORT, (error) => {
   error && console.log(error);
