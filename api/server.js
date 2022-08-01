@@ -18,7 +18,7 @@ app.use(helmet());
 app.use(morgan("tiny"));
 
 import crudRoute from "./routers/crudRoute.js";
-import crudRoute from "./routers/registerLoginRoute.js";
+import registerLoginRoute from "./routers/registerLoginRoute.js";
 app.use("/add", crudRoute);
 app.use("/reg-login", registerLoginRoute);
 
