@@ -28,7 +28,7 @@ Content-Type: application/json
         "phone":"123123",
         "email": "abc@gamil.cop",
         "password": "123456",
-        "address": "123 abc street",
+        "address": "123 abc street"
 
     }
 
