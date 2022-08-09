@@ -1,5 +1,5 @@
-import RegisterSchema from "./RegisterSchema.js";
+import AdminSchema from "./AdminSchema.js";
 
 export const createNewAdmin = (obj) => {
-  return RegisterSchema(obj).save();
+  return AdminSchema(obj).save();
 };
