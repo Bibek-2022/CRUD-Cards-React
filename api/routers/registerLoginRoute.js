@@ -5,7 +5,7 @@ const route = express.Router();
 
 route.post("/", async (req, res, next) => {
   try {
-    console.log("asdfasdfasdfasd");
+    req.body.password = hashPassword(req.body.password);
   } catch (error) {
     next(error);
   }
