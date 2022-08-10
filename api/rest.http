@@ -34,3 +34,12 @@ Content-Type: application/json
     }
 
 
+###  login
+
+POST http://localhost:8000/reg-login/login
+Content-Type: application/json
+    
+    {
+        "email": "abc@gamil.cop",
+        "password": "123456"
+    }
