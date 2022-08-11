@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const rootUrl = "http://localhost:8000/add";
+const regUrl = "http://localhost:8000/reg-login";
+const loginUrl = "http://localhost:8000/reg-login/login";
 
 const apiProcessor = async (method, url, data) => {
   try {
@@ -33,3 +35,7 @@ export const updateCard = (obj) => {
   console.log(obj);
   return apiProcessor("put", rootUrl, obj);
 };
+
+// Registration
+
+// Admin login

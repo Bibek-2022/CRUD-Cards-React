@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
-import { useDispatch } from "react-redux";
-
 const LoginForm = () => {
   const [form, setForm] = useState({});
-  const dispatch = useDispatch();
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
