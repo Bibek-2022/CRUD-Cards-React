@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 
 const LoginForm = () => {
   const [form, setForm] = useState({});
@@ -10,36 +10,38 @@ const LoginForm = () => {
   };
   const handleOnSubmit = (e) => {};
   return (
-    <Form onSubmit={handleOnSubmit}>
-      <Form.Group className="mb-3 " controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          onChange={handleOnChange}
-          required
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          placeholder="*********"
-          onChange={handleOnChange}
-          required
-        />
-      </Form.Group>
+    <Card>
+      <Form onSubmit={handleOnSubmit}>
+        <Form.Group className="mb-3 " controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            onChange={handleOnChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="*********"
+            onChange={handleOnChange}
+            required
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Log In
-      </Button>
+        <Button variant="primary" type="submit">
+          Log In
+        </Button>
 
-      <div className="text-end">
-        Forgot Password <a href="/password-reset">Reset </a>Now
-      </div>
-    </Form>
+        <div className="text-end">
+          Forgot Password <a href="/password-reset">Reset </a>Now
+        </div>
+      </Form>
+    </Card>
   );
 };
 
