@@ -11,5 +11,5 @@ export const loginAction = (obj) => async (dispatch) => {
 
   toast[status](message);
 
-  status === "success" && dispatch(setUser(result));
+  status === "success" && dispatch(setLogin(result));
 };

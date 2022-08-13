@@ -44,6 +44,7 @@ route.post("/login", async (req, res, next) => {
       result.password = undefined;
       if (isPasswordMatch) {
         res.status(200).json({
+          status: "success",
           message: "Admin logged in successfully",
           result,
         });
