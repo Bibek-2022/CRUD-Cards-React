@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { registerUser } from "../helper/axiosHelper";
+
 export const RegistrationForm = () => {
   const [form, setForm] = useState({});
 
@@ -18,6 +20,10 @@ export const RegistrationForm = () => {
     e.preventDefault();
     console.log(form);
     const { confirmPassword, ...rest } = form;
+
+    const { status, message } = await registerUser(rest);
+    console.log(status, message);
+    toast[status](message);
 
     // if (form.password !== form.confirmPassword) {
     //   return toast.error("Passwords do not match");
