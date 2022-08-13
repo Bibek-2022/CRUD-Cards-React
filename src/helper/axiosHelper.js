@@ -37,5 +37,12 @@ export const updateCard = (obj) => {
 };
 
 // Registration
-
+export const registerUser = (obj) => {
+  console.log(obj);
+  return apiProcessor("post", regUrl, obj);
+};
 // Admin login
+export const logUser = (obj) => {
+  console.log(obj);
+  return apiProcessor("post", loginUrl, obj);
+};
