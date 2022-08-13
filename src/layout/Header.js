@@ -6,10 +6,10 @@ export const Header = () => {
       <Container>
         <Navbar.Brand href="#">
           {" "}
-          <i
+          {/* <i
             className="fa-solid fa-bars"
             onClick={() => dispatch(toggleShowSideMenu())}
-          ></i>{" "}
+          ></i>{" "} */}
           Admin CMS
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
