@@ -10,3 +10,4 @@ npm start -> To run the application
 API
 
 /add -> This api will be able to add information to the database
+/delete -> This api will be able to delete records.
